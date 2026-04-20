@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Custom Industrial Palette */
+  --color-surface: #131313;
+  --color-surface-low: #1c1b1b;
+  --color-surface-high: #2a2a2a;
+  --color-primary-safe: #00ff41;
+  --color-secondary-warn: #ffbf00;
+  --color-tertiary-alert: #c40015;
+  --color-outline-variant: rgba(255, 255, 255, 0.15);
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-white antialiased selection:bg-primary-safe selection:text-black;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, .display-label {
+    font-family: var(--font-display);
+  }
+
+  .telemetry {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-white/5 backdrop-blur-[24px] border border-white/10;
+  }
+
+  .no-line-card {
+    @apply bg-surface-low transition-colors duration-300;
+  }
+
+  .no-line-card:hover {
+    @apply bg-surface-high;
+  }
+
+  .status-led {
+    @apply w-2 h-2 rounded-full;
+  }
+
+  .status-led-safe {
+    @apply bg-primary-safe shadow-[0_0_8px_rgba(0,255,65,0.6)];
+  }
+
+  .status-led-warn {
+    @apply bg-secondary-warn shadow-[0_0_8px_rgba(255,191,0,0.6)];
+  }
+
+  .status-led-alert {
+    @apply bg-tertiary-alert shadow-[0_0_8px_rgba(196,0,21,0.6)];
+  }
+}
+
+/* Hide scrollbars for an immersive dashboard feel */
+::-webkit-scrollbar {
+  display: none;
+}

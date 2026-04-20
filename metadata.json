@@ -1,0 +1,11 @@
+{
+  "name": "Tactical Precision: AI Drowsiness Monitor",
+  "description": "Industrial-grade real-time monitoring system for drowsiness and attention detection using MediaPipe and Computer Vision.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "Computer Vision",
+    "Real-time Monitoring"
+  ]
+}
